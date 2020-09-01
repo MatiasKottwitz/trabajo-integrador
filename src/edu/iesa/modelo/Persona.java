@@ -5,6 +5,9 @@
  */
 package edu.iesa.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author matias
@@ -14,7 +17,9 @@ public class Persona {
     private String apellidos;
     private long documento;
     private Entidad entidad;
+    private List<Inscripcion> inscripciones= new ArrayList<>();
 
+    
     //Cosntructor.
     public Persona(){
         
@@ -56,6 +61,14 @@ public class Persona {
 
     public void setEntidad(Entidad entidad) {
         this.entidad = entidad;
+    }
+
+    public List<Inscripcion> getInscripciones() {
+        return inscripciones;
+    }
+
+    public void setInscripciones(List<Inscripcion> inscripciones) {
+        this.inscripciones = inscripciones;
     }
     
     

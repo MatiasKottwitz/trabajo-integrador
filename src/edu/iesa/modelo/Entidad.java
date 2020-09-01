@@ -6,6 +6,7 @@
 package edu.iesa.modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,12 +16,24 @@ public class Entidad {
     private long cuit;
     private String nombre;
     private boolean tipo;
-    private ArrayList<Persona> personas;
+    private List<Persona> personas= new ArrayList<>();
+    private List<Inscripcion> inscripciones = new ArrayList<>();
+
+    
     //CONTRUCTOR
     public Entidad(){
         
     }
 
+    public Entidad(long cuit, String nombre, boolean tipo) {
+        this.cuit = cuit;
+        this.nombre = nombre;
+        this.tipo = tipo;
+    }
+
+   
+    
+    
     public long getCuit() {
         return cuit;
     }
@@ -45,12 +58,21 @@ public class Entidad {
         this.tipo = tipo;
     }
 
-    public ArrayList<Persona> getPersonas() {
+    public List<Persona> getPersonas() {
         return personas;
     }
 
-    public void setPersonas(ArrayList<Persona> personas) {
+    public void setPersonas(List<Persona> personas) {
         this.personas = personas;
     }
+
+    public List<Inscripcion> getInscripciones() {
+        return inscripciones;
+    }
+
+    public void setInscripciones(List<Inscripcion> inscripciones) {
+        this.inscripciones = inscripciones;
+    }
+    
     
 }
