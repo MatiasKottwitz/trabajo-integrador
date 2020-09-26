@@ -5,22 +5,33 @@
  */
 package edu.iesa.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author matias
  */
+@Entity
 public class Persona {
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id_persona;
     private String nombres;
     private String apellidos;
     private long documento;
     private Entidad entidad;
     private List<Inscripcion> inscripciones= new ArrayList<>();
+   
 
     
-    //Cosntructor.
+    //Cosntructor, solo para persistencia.
     public Persona(){
         
     }
@@ -69,6 +80,14 @@ public class Persona {
 
     public void setInscripciones(List<Inscripcion> inscripciones) {
         this.inscripciones = inscripciones;
+    }
+
+    public long getId_persona() {
+        return id_persona;
+    }
+
+    public void setId_persona(long id_persona) {
+        this.id_persona = id_persona;
     }
     
     
