@@ -20,21 +20,23 @@ import javax.persistence.Table;
  */
 @Entity
 public class Persona {
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //modificacion.
+
     private long id_persona;
     private String nombres;
     private String apellidos;
     private long documento;
     private Entidad entidad;
-    private List<Inscripcion> inscripciones= new ArrayList<>();
-   
+    private List<Inscripcion> inscripciones = new ArrayList<>();
 
-    
     //Cosntructor, solo para persistencia.
-    public Persona(){
-        
+    public Persona() {
+
     }
+
     public Persona(String nombres, String apellidos, long documento, Entidad entidad) {
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -89,6 +91,5 @@ public class Persona {
     public void setId_persona(long id_persona) {
         this.id_persona = id_persona;
     }
-    
-    
+
 }
