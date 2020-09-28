@@ -1,10 +1,10 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template file, cho,ose Tools | Templates
  * and open the template in the editor.
  */
 package edu.iesa;
-
+import edu.iesa.modelo.Persona;
 import javax.persistence.Persistence;
 
 /**
@@ -19,6 +19,7 @@ public class Sistema {
     public static void main(String[] args) {
         var emf = Persistence.createEntityManagerFactory("IntegradorPU");
         var em = emf.createEntityManager();
+        var persona1 = new Persona();
     }
     
 }

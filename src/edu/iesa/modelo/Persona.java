@@ -23,8 +23,6 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //modificacion.
-
     private long id_persona;
     private String nombres;
     private String apellidos;
