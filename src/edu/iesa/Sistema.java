@@ -5,6 +5,8 @@
  */
 package edu.iesa;
 
+import javax.persistence.Persistence;
+
 /**
  *
  * @author matias
@@ -15,7 +17,8 @@ public class Sistema {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //hola
+        var emf = Persistence.createEntityManagerFactory("personasPU");
+        var em = emf.createEntityManager();
     }
     
 }
