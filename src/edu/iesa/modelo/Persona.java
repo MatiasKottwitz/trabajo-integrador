@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -27,7 +29,9 @@ public class Persona {
     private String nombres;
     private String apellidos;
     private long documento;
+    @ManyToOne
     private Entidad entidad;
+    @OneToMany
     private List<Inscripcion> inscripciones = new ArrayList<>();
 
     //Cosntructor, solo para persistencia.

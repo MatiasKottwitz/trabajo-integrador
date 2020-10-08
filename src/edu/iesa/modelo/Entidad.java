@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,7 +25,9 @@ public class Entidad {
     private long cuit;
     private String nombre;
     private boolean tipo;
+    @OneToMany
     private List<Persona> personas= new ArrayList<>();
+    @OneToMany
     private List<Inscripcion> inscripciones = new ArrayList<>();
 
     
@@ -80,6 +83,11 @@ public class Entidad {
 
     public void setInscripciones(List<Inscripcion> inscripciones) {
         this.inscripciones = inscripciones;
+    }
+
+    @Override
+    public String toString() {
+        return "Entidad: "+this.nombre;
     }
     
     
