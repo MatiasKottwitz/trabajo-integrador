@@ -6,6 +6,7 @@
     <class>edu.iesa.modelo.Entidad</class>
     <class>edu.iesa.modelo.Inscripcion</class>
     <class>edu.iesa.modelo.Conferencia</class>
+    <class>edu.iesa.modelo.Edicion</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/personas"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

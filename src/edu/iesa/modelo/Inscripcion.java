@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -19,10 +20,13 @@ import java.io.Serializable;
 public class Inscripcion {
     @Id
     private long idinscripcion;
+    @ManyToOne
     private Persona persona;
     private boolean expositor;
     private boolean presencial;
+    @ManyToOne
     private Entidad entidad;
+    @ManyToOne
     private Edicion edicion;
 
     public Inscripcion() {

@@ -8,16 +8,25 @@ package edu.iesa.modelo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author matias
  */
+@Entity
 public class Edicion {
+    @Id
+    private long id_Edicion;
     private String lugar;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
+    @ManyToOne
     private Conferencia conferencia;
+    @OneToMany
     private List<Inscripcion> inscripciones= new ArrayList<>();
 
     public Edicion() {
@@ -70,6 +79,14 @@ public class Edicion {
 
     public void setInscripciones(List<Inscripcion> inscripciones) {
         this.inscripciones = inscripciones;
+    }
+
+    public long getId_Edicion() {
+        return id_Edicion;
+    }
+
+    public void setId_Edicion(long id_Edicion) {
+        this.id_Edicion = id_Edicion;
     }
 
     

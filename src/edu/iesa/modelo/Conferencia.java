@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Conferencia {
     @Id
     private long idUnico;
     private String denominacion;
+    @OneToMany
     private List<Edicion> ediciones = new ArrayList<>();
 
     public Conferencia() {
