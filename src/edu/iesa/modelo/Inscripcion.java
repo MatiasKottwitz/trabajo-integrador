@@ -20,13 +20,13 @@ import javax.persistence.ManyToOne;
 public class Inscripcion {
     @Id
     private long idinscripcion;
-    @ManyToOne
+    @ManyToOne //Relacion Muchas inscripciones para Una Persona.
     private Persona persona;
     private boolean expositor;
     private boolean presencial;
-    @ManyToOne
+    @ManyToOne //Relacion Muchas inscripciones para Una Entidad.
     private Entidad entidad;
-    @ManyToOne
+    @ManyToOne //Relacion Muchas inscripciones para una edicion.
     private Edicion edicion;
 
     public Inscripcion() {

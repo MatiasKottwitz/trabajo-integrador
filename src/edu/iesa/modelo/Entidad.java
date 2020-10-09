@@ -25,9 +25,9 @@ public class Entidad {
     private long cuit;
     private String nombre;
     private boolean tipo;
-    @OneToMany
+    @OneToMany //Relacion Una Entidad para muchas personas.
     private List<Persona> personas= new ArrayList<>();
-    @OneToMany
+    @OneToMany //Relacion Una Entidad para muchas inscripciones.
     private List<Inscripcion> inscripciones = new ArrayList<>();
 
     

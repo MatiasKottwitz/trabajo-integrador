@@ -18,7 +18,7 @@ public class Sistema {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        var emf = Persistence.createEntityManagerFactory("IntegradorPU");
+        var emf = Persistence.createEntityManagerFactory("IntegradorPU"); //La base de datos se llama Integrador.
         var em = emf.createEntityManager();
         /*var entidad1 = new Entidad();
         var persona1 = new Persona("Matias","Kottvitz",34447709,entidad1);

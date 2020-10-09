@@ -24,9 +24,9 @@ public class Edicion {
     private String lugar;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
-    @ManyToOne
+    @ManyToOne //Relacion Muchas Ediciones para una Conferencia.
     private Conferencia conferencia;
-    @OneToMany
+    @OneToMany //Relacion Una Edicion para muchas Inscripciones.
     private List<Inscripcion> inscripciones= new ArrayList<>();
 
     public Edicion() {

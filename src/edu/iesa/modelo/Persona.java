@@ -29,9 +29,9 @@ public class Persona {
     private String nombres;
     private String apellidos;
     private long documento;
-    @ManyToOne
+    @ManyToOne //Relacion de Muchas personas para una entidad.
     private Entidad entidad;
-    @OneToMany
+    @OneToMany //Relacion de Una persona para Muchas inscripciones.
     private List<Inscripcion> inscripciones = new ArrayList<>();
 
     //Cosntructor, solo para persistencia.

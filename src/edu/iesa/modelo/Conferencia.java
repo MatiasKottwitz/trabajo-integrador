@@ -24,7 +24,7 @@ public class Conferencia {
     @Id
     private long idUnico;
     private String denominacion;
-    @OneToMany
+    @OneToMany //Relacion Una conferencia para muchas ediciones.
     private List<Edicion> ediciones = new ArrayList<>();
 
     public Conferencia() {
