@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,13 +25,13 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //modificacion.
-
-    private long id_persona;
+    private long idPersona;
     private String nombres;
     private String apellidos;
     private long documento;
+    @ManyToOne //Relacion de Muchas personas para una entidad.
     private Entidad entidad;
+    @OneToMany //Relacion de Una persona para Muchas inscripciones.
     private List<Inscripcion> inscripciones = new ArrayList<>();
 
     //Cosntructor, solo para persistencia.
@@ -85,11 +87,11 @@ public class Persona {
     }
 
     public long getId_persona() {
-        return id_persona;
+        return idPersona;
     }
 
-    public void setId_persona(long id_persona) {
-        this.id_persona = id_persona;
+    public void setId_persona(long idPersona) {
+        this.idPersona = idPersona;
     }
 
 }
