@@ -14,12 +14,13 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author matias
+ * @author matiasÍ
  */
 @Entity
 public class Inscripcion {
     @Id
-    private long idinscripcion;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idInscripcion;
     @ManyToOne //Relacion Muchas inscripciones para Una Persona.
     private Persona persona;
     private boolean expositor;
@@ -32,8 +33,7 @@ public class Inscripcion {
     public Inscripcion() {
     }
 
-    public Inscripcion(long idinscripcion, Persona persona, boolean expositor, boolean presencial, Entidad entidad, Edicion edicion) {
-        this.idinscripcion = idinscripcion;
+    public Inscripcion(Persona persona, boolean expositor, boolean presencial, Entidad entidad, Edicion edicion) {
         this.persona = persona;
         this.expositor = expositor;
         this.presencial = presencial;
@@ -41,12 +41,12 @@ public class Inscripcion {
         this.edicion = edicion;
     }
 
-    public long getIdinscripcion() {
-        return idinscripcion;
+    public long getIdInscripcion() {
+        return idInscripcion;
     }
 
-    public void setIdinscripcion(long idinscripcion) {
-        this.idinscripcion = idinscripcion;
+    public void setIdInscripcion(long idinscripcion) {
+        this.idInscripcion = idInscripcion;
     }
 
     public Persona getPersona() {

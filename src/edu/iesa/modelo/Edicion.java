@@ -9,6 +9,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -20,7 +22,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Edicion {
     @Id
-    private long id_Edicion;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idEdicion;
     private String lugar;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
@@ -82,11 +85,11 @@ public class Edicion {
     }
 
     public long getId_Edicion() {
-        return id_Edicion;
+        return idEdicion;
     }
 
-    public void setId_Edicion(long id_Edicion) {
-        this.id_Edicion = id_Edicion;
+    public void setId_Edicion(long idEdicion) {
+        this.idEdicion = idEdicion;
     }
 
     

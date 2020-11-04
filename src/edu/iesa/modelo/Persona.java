@@ -25,7 +25,7 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_persona;
+    private long idPersona;
     private String nombres;
     private String apellidos;
     private long documento;
@@ -87,11 +87,11 @@ public class Persona {
     }
 
     public long getId_persona() {
-        return id_persona;
+        return idPersona;
     }
 
-    public void setId_persona(long id_persona) {
-        this.id_persona = id_persona;
+    public void setId_persona(long idPersona) {
+        this.idPersona = idPersona;
     }
 
 }

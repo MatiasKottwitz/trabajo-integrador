@@ -22,6 +22,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Conferencia {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idUnico;
     private String denominacion;
     @OneToMany //Relacion Una conferencia para muchas ediciones.
@@ -30,8 +31,7 @@ public class Conferencia {
     public Conferencia() {
     }
 
-    public Conferencia(long idUnico, String denominacion) {
-        this.idUnico = idUnico;
+    public Conferencia(String denominacion) {
         this.denominacion = denominacion;
     }
 
