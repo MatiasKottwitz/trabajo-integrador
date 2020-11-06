@@ -31,7 +31,7 @@ public class Persona {
     private long documento;
     @ManyToOne //Relacion de Muchas personas para una entidad.
     private Entidad entidad;
-    @OneToMany //Relacion de Una persona para Muchas inscripciones.
+    @OneToMany (mappedBy="persona")//Relacion de Una persona para Muchas inscripciones.
     private List<Inscripcion> inscripciones = new ArrayList<>();
 
     //Cosntructor, solo para persistencia.
@@ -86,11 +86,11 @@ public class Persona {
         this.inscripciones = inscripciones;
     }
 
-    public long getId_persona() {
+    public long getIdPersona() {
         return idPersona;
     }
 
-    public void setId_persona(long idPersona) {
+    public void setIdPersona(long idPersona) {
         this.idPersona = idPersona;
     }
 

@@ -25,7 +25,7 @@ public class Conferencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idUnico;
     private String denominacion;
-    @OneToMany //Relacion Una conferencia para muchas ediciones.
+    @OneToMany(mappedBy="conferencia")//Relacion Una conferencia para muchas ediciones.
     private List<Edicion> ediciones = new ArrayList<>();
 
     public Conferencia() {

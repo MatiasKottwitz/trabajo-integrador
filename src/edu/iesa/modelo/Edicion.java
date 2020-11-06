@@ -29,7 +29,7 @@ public class Edicion {
     private LocalDate fechaFin;
     @ManyToOne //Relacion Muchas Ediciones para una Conferencia.
     private Conferencia conferencia;
-    @OneToMany //Relacion Una Edicion para muchas Inscripciones.
+    @OneToMany(mappedBy="edicion") //Relacion Una Edicion para muchas Inscripciones.
     private List<Inscripcion> inscripciones= new ArrayList<>();
 
     public Edicion() {
