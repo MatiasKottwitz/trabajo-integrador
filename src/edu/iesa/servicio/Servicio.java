@@ -29,12 +29,27 @@ public class Servicio {
         this.repositorio.confirmarTransaccion();
     }
     
+    public long eliminarEntidad(long cuit){
+        this.repositorio.iniciarTransaccion();
+        Entidad entidad = this.repositorio.buscar(Entidad.class, cuit);
+        // si la entidad existe
+        if (entidad != null) {
+            this.repositorio.eliminar(entidad);
+            this.repositorio.confirmarTransaccion();
+            return 0;
+        } else {
+            this.repositorio.descartarTransaccion();
+            return 1;
+        }
+    }
+    
     public void editarEntidad(Entidad entidad1, long cuit,String nombre,boolean tipo){
         this.repositorio.iniciarTransaccion();
         Entidad entidad = this.repositorio.buscar(Entidad.class, entidad1.getCuit());
          if (entidad != null) {
             entidad.setCuit(cuit);
             entidad.setNombre(nombre.toUpperCase().trim());
+            entidad.setTipo(tipo);
             this.repositorio.modificar(entidad);
             this.repositorio.confirmarTransaccion();
         } else {

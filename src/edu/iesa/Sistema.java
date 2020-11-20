@@ -53,19 +53,22 @@ public class Sistema extends Application {
         Button personasButton = new Button("Personas");
         Button conferenciasButton = new Button("Conferencas");
         Button registroButton = new Button("Registro");
+        Button salirButton= new Button("Salir Aplicacion");
         
         // separadores
         Separator separador1 = new Separator(Orientation.HORIZONTAL);
         Separator separador2 = new Separator(Orientation.HORIZONTAL);
         Separator separador3 = new Separator(Orientation.HORIZONTAL);
         Separator separador4 = new Separator(Orientation.HORIZONTAL);
+        Separator separador6 = new Separator(Orientation.HORIZONTAL);
         
         // contenedor de botones y separadores
         VBox contenedorBotones = new VBox();
         contenedorBotones.setAlignment(Pos.CENTER);
         contenedorBotones.setPadding(new Insets(10, 10, 10, 10));
         contenedorBotones.setSpacing(10);
-        contenedorBotones.getChildren().addAll(entidadesButton, separador1, personasButton, separador2, conferenciasButton, separador3, registroButton);
+        VBox.setMargin(salirButton, new Insets(195, 0, -200, 10));
+        contenedorBotones.getChildren().addAll(entidadesButton, separador1, personasButton, separador2, conferenciasButton, separador3, registroButton,separador4,salirButton);
         
         // contenedor de botones y separadores con cambiante
         HBox contenedorPrincipal = new HBox();
@@ -77,6 +80,9 @@ public class Sistema extends Application {
         // que muestro inicialmente
         cambiante.getChildren().add(vistaEntidades.obtenerVista());
         
+        salirButton.setOnAction(eh -> {
+           stage.close();
+        });
         // escena  principal
         Scene escena = new Scene(contenedorPrincipal);
         stage.setScene(escena);

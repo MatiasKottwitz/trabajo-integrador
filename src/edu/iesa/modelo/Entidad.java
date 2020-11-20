@@ -87,7 +87,14 @@ public class Entidad {
 
     @Override
     public String toString() {
-        return "Entidad: "+this.nombre;
+        String tipoentidad;
+        if (this.tipo==true){
+            tipoentidad="Publica";
+        }else{
+            tipoentidad="Privada";
+        }
+            
+        return "Entidad: "+this.nombre + " Cuit: "+this.cuit+ " Tipo de Entidad: "+tipoentidad;
     }
     
     
