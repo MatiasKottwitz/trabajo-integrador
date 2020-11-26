@@ -96,6 +96,9 @@ public class Sistema extends Application {
            stage.close();
         });
         
+        conferenciasButton.setDisable(true);
+        registroButton.setDisable(true);
+        
         //que muestro inicialmente
         cambiante.getChildren().add(vistaEntidades.obtenerVista());
         // escena  principal                        ancho | Alto 
