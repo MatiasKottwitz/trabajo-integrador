@@ -103,8 +103,10 @@ public class VistaEntidades implements Vista{
         HBox contenedor = new HBox();
         contenedor.setAlignment(Pos.CENTER);
         contenedor.getChildren().addAll(contenedorDatos);
-        
+        limpiarpersonas(personaListView);
+        limpiar(entidadesListView);
         //Acciones de los botones
+        entidadesListView.getSelectionModel().select(null);
         nuevoButton.setOnAction((ActionEvent eh) -> {
             // dejo sin seleccionar items de la lista
             entidadesListView.getSelectionModel().select(null);
@@ -121,6 +123,7 @@ public class VistaEntidades implements Vista{
                 a.setTitle("Formato Incorrecto!");
                 a.show();
             }
+            //Verifica el tipo de entidad
             String tipoelegido = (String) comboTipo.getValue();
             if("Publica".equals(tipoelegido)){
                 this.tipo=true;
@@ -135,7 +138,6 @@ public class VistaEntidades implements Vista{
                 this.servicios.agregarEntidad(Integer.parseInt(cuitTextField.getText()), nombreTextField.getText(),tipo);                
             }
             
-            System.out.println(tipoelegido);
                 
             limpiar(entidadesListView);
         });
@@ -182,7 +184,22 @@ public class VistaEntidades implements Vista{
         
         return contenedor;
     }
-    
+    //limpia y carga el listView de Personas
+    private void limpiarpersonas(ListView l) {
+        // dejo sin elemento seleccionado
+        l.getSelectionModel().select(null);
+        // vacio la lista
+        l.getItems().clear();
+        // cargo la lista con objetos de tipo Aula obtenidos por el servicio
+        l.getItems().addAll(this.servicios.listarPersonas());
+        
+        // si hay elementos recuperados del repositorio en la lista
+        if (l.getItems().size() > 0) {            
+            // selecciono el primer elemento del ListView
+            l.getSelectionModel().selectFirst();
+        
+        }
+    }
     private void limpiar(ListView l) {
         // dejo sin elemento seleccionado
         l.getSelectionModel().select(null);

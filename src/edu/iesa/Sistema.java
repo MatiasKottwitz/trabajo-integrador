@@ -47,6 +47,7 @@ public class Sistema extends Application {
         
         //Creacion de Vistas
         VistaEntidades vistaEntidades = new VistaEntidades(servicio);
+        VistaPersonas vistaPersonas = new VistaPersonas(servicio);
         
         //Botones para navegacion entre vistas
         Button entidadesButton = new Button("Entidades");
@@ -67,7 +68,7 @@ public class Sistema extends Application {
         contenedorBotones.setAlignment(Pos.CENTER);
         contenedorBotones.setPadding(new Insets(10, 10, 10, 10));
         contenedorBotones.setSpacing(10);
-        VBox.setMargin(salirButton, new Insets(195, 0, -200, 10));
+        VBox.setMargin(salirButton, new Insets(300, 0, -100, 0));
         contenedorBotones.getChildren().addAll(entidadesButton, separador1, personasButton, separador2, conferenciasButton, separador3, registroButton,separador4,salirButton);
         
         // contenedor de botones y separadores con cambiante
@@ -77,14 +78,28 @@ public class Sistema extends Application {
         Group cambiante = new Group();
         contenedorPrincipal.getChildren().addAll(contenedorBotones, separador5, cambiante);
         
-        // que muestro inicialmente
-        cambiante.getChildren().add(vistaEntidades.obtenerVista());
+        
+        
+        entidadesButton.setOnAction(eh -> {
+            cambiante.getChildren().clear();
+            cambiante.getChildren().add(vistaEntidades.obtenerVista());
+            stage.setTitle("Administracion de Entidades");
+        });
+        
+        personasButton.setOnAction(eh -> {
+            cambiante.getChildren().clear();
+            cambiante.getChildren().add(vistaPersonas.obtenerVista());
+            stage.setTitle("Administracion de Personas");
+        });
         
         salirButton.setOnAction(eh -> {
            stage.close();
         });
-        // escena  principal
-        Scene escena = new Scene(contenedorPrincipal);
+        
+        //que muestro inicialmente
+        cambiante.getChildren().add(vistaEntidades.obtenerVista());
+        // escena  principal                        ancho | Alto 
+        Scene escena = new Scene(contenedorPrincipal, 710 , 705 ); 
         stage.setScene(escena);
         stage.setTitle("Entidades");
         stage.setResizable(false);

@@ -94,8 +94,6 @@ public class Entidad {
             tipoentidad="Privada";
         }
             
-        return "Entidad: "+this.nombre + " Cuit: "+this.cuit+ " Tipo de Entidad: "+tipoentidad;
+        return "Entidad: "+this.getNombre() + " Cuit: "+this.cuit+ " Tipo de Entidad: "+tipoentidad;
     }
-    
-    
 }

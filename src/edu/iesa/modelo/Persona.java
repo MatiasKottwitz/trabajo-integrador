@@ -94,4 +94,9 @@ public class Persona {
         this.idPersona = idPersona;
     }
 
+    @Override
+    public String toString() {
+        return "Nombre: "+this.nombres + " Apellidos: "+this.apellidos+" Documento: "+this.documento+ " Entidad: "+entidad.getNombre();
+    }
+
 }
