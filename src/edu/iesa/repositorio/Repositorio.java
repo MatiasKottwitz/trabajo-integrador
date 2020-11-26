@@ -104,6 +104,20 @@ public class Repositorio  {
         // ejecuto y obtengo el resultado
         return em.createQuery(consulta).getResultList();
     }
+    
+    public <T extends Object, P extends Object> List<T> buscarTodosOrdenadosPorNombre (Class<T> clase, SingularAttribute<T, P> orden) {
+        // obtengo un CriteriaBuilder
+        CriteriaBuilder cb = this.em.getCriteriaBuilder();
+        // creo un CriteriaQuery
+        CriteriaQuery<T> consulta = cb.createQuery(clase);
+        // Defino el FROM
+        Root<T> origen = consulta.from(clase); 
+        // defino el select
+        consulta.select(origen.get("nombre"));
+        //Retorno de la Consulta.
+        consulta.orderBy(cb.asc(origen));
+        return em.createQuery(consulta).getResultList();
+    }
 }
 
 
